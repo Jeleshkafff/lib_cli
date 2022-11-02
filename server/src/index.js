@@ -1,10 +1,16 @@
 import express from "express";
+import cors from "cors";
 import mssql from "mssql/msnodesqlv8";
 import { db } from "./database";
 import { appRouter } from "./routes";
 const app = express();
 const port = 666;
-app.use(express.json())
+app.use(express.json());
+app.use(
+  cors({
+    origin: /localhost/,
+  })
+);
 app.use("/", appRouter);
 
 app.listen(port, async () => {

@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var cors = require('cors');
 var mssql = require('mssql/msnodesqlv8');
 
 /**
@@ -431,6 +432,11 @@ appRouter.use("/movings", movingsRouter);
 const app = express();
 const port = 666;
 app.use(express.json());
+app.use(
+  cors({
+    origin: /localhost/,
+  })
+);
 app.use("/", appRouter);
 
 app.listen(port, async () => {

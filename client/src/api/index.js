@@ -1,1 +1,2 @@
-export * as booksApi from "./book"  
+export * as booksApi from "./books"  
+export * as authorsApi from "./authors"
